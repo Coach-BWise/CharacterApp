@@ -4,6 +4,8 @@ import com.revature.characterapp.models.*;
 import com.revature.characterapp.services.*;
 import lombok.*;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,27 +19,31 @@ public class CharacterController {
     CharacterService characterService;
 
     //When they generate a new character
-    @GetMapping("/new")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "/new", produces = MediaType.APPLICATION_JSON_VALUE)
     public CharacterEntity generateCharacter(){
-        return null;
+        return characterService.generate();
     }
 
     //When they want to see all the characters saved
-    @GetMapping("/all")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CharacterEntity> retrieveAllCharacters(){
-        return null;
+        return characterService.getAll();
     }
 
     //Get character by ID
-    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CharacterEntity retrieveCharacterById(@PathVariable int id){
-        return null;
+        return characterService.getByID(id);
     }
 
     //Edit new character
-    @PostMapping("/edit")
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "/edit", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public CharacterEntity editCharacterById(CharacterEntity characterEntity){
-        return null;
+        return characterService.edit(characterEntity);
     }
 
 }

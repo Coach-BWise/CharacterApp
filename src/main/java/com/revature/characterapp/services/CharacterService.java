@@ -1,10 +1,14 @@
 package com.revature.characterapp.services;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import com.revature.characterapp.enums.*;
 import com.revature.characterapp.models.*;
 import com.revature.characterapp.repositories.*;
+import com.revature.exceptions.CharacterNotFoundException;
+
 import lombok.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
@@ -60,5 +64,22 @@ public class CharacterService {
 
     public CharacterEntity saveCharacter(CharacterEntity characterEntity){
         return characterRepository.save(characterEntity);
+    }
+
+    public List<CharacterEntity> getAll(){
+        return characterRepository.findAll();
+    }
+    public CharacterEntity getByID(int i){
+        Optional<CharacterEntity> character = characterRepository.findById(i);
+        if(character.isPresent()){
+            return character.get();
+        }
+        else{
+            throw new CharacterNotFoundException("Character does not exist...yet.");
+        }
+    }
+
+    public CharacterEntity edit(CharacterEntity character) {
+        return characterRepository.save(character);
     }
 }
