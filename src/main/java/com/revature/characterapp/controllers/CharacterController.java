@@ -42,7 +42,7 @@ public class CharacterController {
     //Edit new character
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/edit", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public CharacterEntity editCharacterById(CharacterEntity characterEntity){
+    public CharacterEntity editCharacterById(@RequestBody CharacterEntity characterEntity){
         return characterService.edit(characterEntity);
     }
 
