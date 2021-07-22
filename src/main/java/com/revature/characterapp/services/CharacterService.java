@@ -1,5 +1,6 @@
 package com.revature.characterapp.services;
 
+import com.revature.characterapp.enums.*;
 import com.revature.characterapp.models.*;
 import com.revature.characterapp.repositories.*;
 import lombok.*;
@@ -15,6 +16,13 @@ public class CharacterService {
 
     @Transactional
     public CharacterEntity generate(){
-        return null;
+        CharacterEntity newCharacter = new CharacterEntity();
+
+        String male = Sex.MALE.getSex();
+        return saveCharacter(newCharacter);
+    }
+
+    public CharacterEntity saveCharacter(CharacterEntity characterEntity){
+        return characterRepository.save(characterEntity);
     }
 }
