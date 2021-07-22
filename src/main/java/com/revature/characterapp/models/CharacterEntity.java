@@ -11,6 +11,7 @@ import javax.persistence.*;
 public class CharacterEntity {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String name;

@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.*;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.revature.characterapp.repositories")
-@EntityScan("com.revature.models")
 @EnableTransactionManagement
 @ComponentScan(basePackages = "com.revature.characterapp")
 public class AppConfig {
