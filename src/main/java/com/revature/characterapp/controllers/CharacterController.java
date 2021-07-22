@@ -35,8 +35,8 @@ public class CharacterController {
     }
 
     //Edit new character
-    @PostMapping("/edit/{id}")
-    public CharacterEntity editCharacterById(@PathVariable int id){
+    @PostMapping("/edit")
+    public CharacterEntity editCharacterById(CharacterEntity characterEntity){
         return null;
     }
 
