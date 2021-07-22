@@ -7,7 +7,7 @@ import java.util.Random;
 import com.revature.characterapp.enums.*;
 import com.revature.characterapp.models.*;
 import com.revature.characterapp.repositories.*;
-import com.revature.exceptions.CharacterNotFoundException;
+import com.revature.characterapp.exceptions.CharacterNotFoundException;
 
 import lombok.*;
 import org.springframework.beans.factory.annotation.*;
@@ -80,6 +80,24 @@ public class CharacterService {
     }
 
     public CharacterEntity edit(CharacterEntity character) {
-        return characterRepository.save(character);
+
+
+        Optional<CharacterEntity> old = characterRepository.findById(character.getId());
+        if (old.isPresent()) {
+            old.get().setAge(character.getAge());
+            old.get().setName(character.getName());
+            old.get().setAlignment(character.getAlignment());
+            old.get().setEyeColor(character.getEyeColor());
+            old.get().setHairColor(character.getHairColor());
+            old.get().setHeight(character.getHeight());
+            old.get().setNationality(character.getNationality());
+            old.get().setProfession(character.getProfession());
+            old.get().setRace(character.getRace());
+            old.get().setSex(character.getSex());
+            return characterRepository.save(old.get());
+        }
+        else {
+            return characterRepository.save(character);
+        }
     }
 }
