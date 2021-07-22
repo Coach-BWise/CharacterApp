@@ -1,5 +1,7 @@
 package com.revature.characterapp.enums;
 
+import java.util.Random;
+
 import lombok.*;
 
 @Getter
@@ -27,5 +29,9 @@ public enum Profession {
 
     Profession(String profession){
         this.profession = profession;
+    }
+    public static Profession random(){
+        Profession[] values = Profession.values();
+        return values[new Random().nextInt(values.length)];
     }
 }

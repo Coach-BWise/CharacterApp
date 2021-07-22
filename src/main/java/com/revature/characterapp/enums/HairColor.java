@@ -1,5 +1,7 @@
 package com.revature.characterapp.enums;
 
+import java.util.Random;
+
 public enum HairColor {
     WHITE("WHITE"),
     BLACK("BLACK"),
@@ -15,6 +17,12 @@ public enum HairColor {
     private String color;
     HairColor(String color){
         this.color = color;
+    }
+
+    
+    public static HairColor random(){
+        HairColor[] values = HairColor.values();
+        return values[new Random().nextInt(values.length)];
     }
 
     public String getColor() {

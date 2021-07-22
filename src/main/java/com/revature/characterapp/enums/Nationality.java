@@ -1,5 +1,7 @@
 package com.revature.characterapp.enums;
 
+import java.util.Random;
+
 import lombok.*;
 
 @Getter
@@ -21,6 +23,12 @@ public enum Nationality {
     private String nationality;
     Nationality(String nationality){
         this.nationality = nationality;
+    }
+
+    
+    public static Nationality random(){
+        Nationality[] values = Nationality.values();
+        return values[new Random().nextInt(values.length)];
     }
 
 

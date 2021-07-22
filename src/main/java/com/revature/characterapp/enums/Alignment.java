@@ -1,5 +1,7 @@
 package com.revature.characterapp.enums;
 
+import java.util.Random;
+
 import lombok.*;
 
 @Getter
@@ -16,6 +18,10 @@ public enum Alignment {
 
     private String alignment;
 
+    public static Alignment random(){
+        Alignment[] values = Alignment.values();
+        return values[new Random().nextInt(values.length)];
+    }
     Alignment(String alignment){
         this.alignment = alignment;
     }

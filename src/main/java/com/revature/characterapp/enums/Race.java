@@ -1,5 +1,7 @@
 package com.revature.characterapp.enums;
 
+import java.util.Random;
+
 import lombok.*;
 
 @Getter
@@ -20,6 +22,10 @@ public enum Race {
 
     Race(String race){
         this.race = race;
+    }
+    public static Race random(){
+        Race[] values = Race.values();
+        return values[new Random().nextInt(values.length)];
     }
 
 }
