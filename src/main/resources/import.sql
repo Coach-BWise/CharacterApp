@@ -1,0 +1,2 @@
+insert into characters (id, age, alignment, eye_color, hair_color, height, name, nationality, profession, race, sex) values (1, 55, 'CHAOTIC EVIL', 'GOLD', 'BROWN', 62, 'John Doe', 'AYR', 'BEAST TAMER', 'DEMON', 'MALE')
+insert into characters (id, age, alignment, eye_color, hair_color, height, name, nationality, profession, race, sex) values (2, 21, 'CHAOTIC GOOD', 'RED', 'BLONDE', 60, 'Bruce Wayne', 'AYR', 'KNIGHT', 'ELF', 'MALE')

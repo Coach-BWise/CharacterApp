@@ -59,7 +59,7 @@ public class CharacterService {
             default:
                 break;
         }
-        return saveCharacter(new CharacterEntity(0, "John Doe", Sex.random().getSex(), HairColor.random().getColor(), EyeColor.random().getColor(), race.getRace(), Alignment.random().getAlignment(), Profession.random().getProfession(), Nationality.random().getNationality(), height , new Random().nextInt(100)));
+        return saveCharacter(new CharacterEntity(0, "No Name", Sex.random().getSex(), HairColor.random().getColor(), EyeColor.random().getColor(), race.getRace(), Alignment.random().getAlignment(), Profession.random().getProfession(), Nationality.random().getNationality(), height , new Random().nextInt(100)));
     }
 
     public CharacterEntity saveCharacter(CharacterEntity characterEntity){
